@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = '';
-
+//$config['base_url'] = 'http://127.0.0.1/codeignator-ci/bcit-ci-CodeIgniter-b73eb19';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -454,7 +454,6 @@ $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
-
 /*
 |--------------------------------------------------------------------------
 | Output Compression

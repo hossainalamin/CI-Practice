@@ -1,4 +1,5 @@
-<?php include'templates/header.php';?>
+<?php include'templates/header.php';
+?>
 <body>
     <br><br>
     <div class="container">
@@ -9,11 +10,12 @@
                 <div class="card">
                     <div class="card-body">
                     <form action="<?php echo base_url()."insert_data"?>" method="POST">
-                        Name : <input type="text" name="name"><br> <br>
+                        Name : <input type="text" name="name" id="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : '' ?>"><br> <br><br>
                        <span class="text-danger"> <?php echo form_error('name')?></span>
-                        Email : <input type="text" name= "email"><br><br>
-                       <span class="text-danger"> <?php echo form_error('email')?></span>                        
-                        Phone : <input type="text" name = "phone"><br><br>
+                        Email : <input type="text" name= "email"value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>"><br><br>
+                       <span class="text-danger"> <?php echo form_error('email')?></span> 
+                        <span class="text-danger"> <?php if($message){echo $message;}else{echo "";}?></span><br>
+                        Phone : <input type="text" name = "phone"value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : '' ?>"><br> <br> <br>
                        <span class="text-danger"> <?php echo form_error('phone')?></span>
                         <input type="submit" value="Add" class="btn btn-success">
                     </form>

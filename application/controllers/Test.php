@@ -22,13 +22,28 @@
                 $data['name'] =  $this->input->post('name');
                 $data['email'] =  $this->input->post('email');
                 $data['phone'] =  $this->input->post('phone');
-                $this->Test_model->insert_data($data);
-                $this->session->set_flashdata('add','Recored added');
-                redirect('http://localhost/codeignator-ci/bcit-ci-CodeIgniter-b73eb19/index.php/Test/index');
+                $data['e_dt'] =    date('Y-m-d H:i:s');
+                $check = $this->Test_model->insert_data($data);
+                if($check == 0){
+                    $message= "Duplicate mail";
+                    $data = array(
+                        'message' => 'Duplicate mail'
+                    );
+                    // echo '<pre>';
+                    // print_r($message);
+                    // exit;
+                    $this->load->view('test',$data);
+
+                }else{
+                    $this->session->set_flashdata('add','Recored added');
+                    redirect('http://localhost/codeignator-ci/bcit-ci-CodeIgniter-b73eb19/index.php/Test/index');
+                }
             }
         }
         public function create(){
-            $this->load->view('test');
+            $data = array();
+            $data['message'] = "";
+            $this->load->view('test',$data);
         }
         public function loader(){
             $this->load->helper('html');
@@ -50,6 +65,7 @@
                 $data['name'] =  $this->input->post('name');
                 $data['email'] =  $this->input->post('email');
                 $data['phone'] =  $this->input->post('phone');
+                $data['u_dt'] =    date('Y-m-d H:i:s');
                 $this->Test_model->edit_data($id,$data);
                 $this->session->set_flashdata('edit','Recored edited');
                 redirect('http://localhost/codeignator-ci/bcit-ci-CodeIgniter-b73eb19/index.php/Test/index');

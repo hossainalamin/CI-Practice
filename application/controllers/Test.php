@@ -10,6 +10,16 @@
             $data['test'] = $database_data;
             $this->load->view('user',$data);
         }
+        public function search(){
+            $this->load->model('Test_model');
+            $data = Array();
+            $data['name'] = $this->input->post('name');
+            $data['email'] = $this->input->post('email');
+            $data['phone'] = $this->input->post('phone');
+            $database_data = $this->Test_model->search_data($data);
+            $data['test'] = $database_data;
+            $this->load->view('search',$data);
+        }
         public function insert_data(){
             $this->form_validation->set_rules("name","Name","required");
             $this->form_validation->set_rules("email","email","required|valid_email");
@@ -29,9 +39,6 @@
                     $data = array(
                         'message' => 'Duplicate mail'
                     );
-                    // echo '<pre>';
-                    // print_r($message);
-                    // exit;
                     $this->load->view('test',$data);
 
                 }else{

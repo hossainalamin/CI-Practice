@@ -23,6 +23,15 @@
             ->get('test_table')->result_array();
             return $data;
         }
+        public function search_data($data){
+            $result =   $this->db->select('*')
+              ->like('name',$data['name'])
+              ->like('email',$data['email'])
+              ->like('phone',$data['phone'])
+              ->where('sts',1)
+              ->get('test_table')->result_array();
+              return $result;
+          }
         public function get_single_data($id){
              $data = $this->db->select('*')
              ->where('id',$id)

@@ -6,14 +6,6 @@
             <div class="col-md-3">
                 <a href="<?php echo base_url().'create'?>" class="btn btn-success">Create User</a>
             </div>
-            <div class="col-md-9">
-                <form action="http://localhost/codeignator-ci/bcit-ci-CodeIgniter-b73eb19/index.php/Test/search" name = "searchForm" onsubmit = " return formValidation()" method="post">
-                    name : <input type="text" id ="name" name="name">
-                    Email : <input type="text" id = "email" name="email">
-                    phone :<input type="text"id = "phone" name = "phone">
-                    <input type="submit" value="Search">
-                </form>
-            </div>
         </div>
     <?php
         $session = $this->session->userdata('add');

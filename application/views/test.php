@@ -15,7 +15,7 @@
                         Email : <input type="text" name= "email"value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>"><br><br>
                        <span class="text-danger"> <?php echo form_error('email')?></span> 
                         <span class="text-danger"> <?php if($message){echo $message;}else{echo "";}?></span><br>
-                        Phone : <input type="text" id="phone" name = "phone"value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : '' ?>" onchage="phoneValidation()"><br> <br> <br>
+                        Phone : <input type="text" id="phone" name = "phone"value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : '' ?>" ><br> <br> <br>
                        <span class="text-danger"> <?php echo form_error('phone')?></span>
                         <input type="submit" value="Add" class="btn btn-success">
                     </form>
